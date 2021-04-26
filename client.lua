@@ -40,13 +40,13 @@ end)
 
 function ActivateBlips()
 	local blip = AddBlipForCoord(_Impound.RetrieveLocation.X, _Impound.RetrieveLocation.Y, _Impound.RetrieveLocation.Z)
-	SetBlipScale(blip, 1.25)
-	SetBlipDisplay(blip, 4)
+	SetBlipScale(blip, 1.0)
+	-- SetBlipDisplay(blip, 4)
 	SetBlipSprite(blip, 430)
 	SetBlipColour(blip, 3)
-	SetBlipAsShortRange(blip, true)
+	-- SetBlipAsShortRange(blip, true)
 	BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString("Police Impound")
+    AddTextComponentString("Asuransi")
     EndTextCommandSetBlipName(blip)
 end
 
