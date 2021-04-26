@@ -8,21 +8,21 @@
         <img id="cursor" src="cursor.png">
 
         <div id="impound-form">
-			<h1>Vehicle Impoundment Form</h1>
+			<h1>Formulir menyita kendaraan</h1>
 			<hr>
 			<div id="veh-info">
-				<p id="owner">Unknown</p>
-				<p id="plate">Unknown</p>
+				<p id="owner">Tidak dikenal</p>
+				<p id="plate">Tidak dikenal</p>
 			</div>
 			<hr>
 			<div id="names" class="row">
-				<label>Authorizing officer: </label>
+				<label>Petugas yang berwenang: </label>
 				<input id="officer" class="form-control" name="officer" placeholder="First & Lastname"/>
-				<label>Mechanic: </label>
-				<input id="mechanic" class="form-control" name="officer" placeholder="First & Lastname"/>
+				<!-- <label>Mechanic: </label>
+				<input id="mechanic" class="form-control" name="officer" placeholder="First & Lastname"/> -->
 			</div>
 			<div id="duration-row">
-				<label>Duration:* </label>
+				<label>Durasi:* </label>
 				<div id="duration">
 					<input type="number" min="0" max="41" id="weeks" class="form-control" name="weeks" placeholder="0 - 41 Weeks"/>
 					<input type="number" min="0" max="6" id="days" class="form-control" name="days" placeholder="0 - 6 Days"/>
@@ -30,48 +30,48 @@
 				</div>
 			</div>
 			<div id="fee-row">
-					<label>Fee:* </label>
+					<label>Biaya:* </label>
 					<input type="number" min="250" max="1000000" id="fee" class="form-control" name="fee" placeholder="250 - 1.000.000"/>
 			</div>
 			<hr>
 			<div class="form-group">
-				<label>Reason stated:* </label>
+				<label>Alasan disita:* </label>
 				<textarea id="reason" class="form-control" name="reason" placeholder="Enter a detailed description of 25 characters or more" rows="8"></textarea>
 			</div>
 			<hr>
 			<div class="form-group">
-				<label>Other / Notes: </label>
+				<label>Lainnya / Catatan: </label>
 				<textarea id="reason" class="form-control" name="reason" placeholder="Reason" rows="3"></textarea>
 			</div>
 			<hr>
 			<div id="hold_o" class="form-group checkbox">
-				This vehicle must be unlocked by an officer: <input type="checkbox">
+				Kendaraan ini harus dibuka oleh polantas/polisi: <input type="checkbox">
 			</div>
-			<div id="hold_m" class="form-group checkbox">
+			<!-- <div id="hold_m" class="form-group checkbox">
 				This vehicle must be unlocked by a mechanic: <input type="checkbox">
-			</div>
+			</div> -->
 			<div id="errors">
 			
 			</div>
 			<div id="actions">
-				<button class="btn cancel mr" id="cancel">Cancel</button>
-				<button class="btn success" id="impound">Impound</button>
+				<button class="btn cancel mr" id="cancel">Batal</button>
+				<button class="btn success" id="impound">Sita</button>
 			</div>
         </div>
 		
 		<div id="retrieve-form">
-			<h1>Vehicle Unimpoundment Form</h1>
+			<h1>Formulir menyita kendaraan</h1>
 			<span id="exit">&#x2715;</span>
 			<hr>
 			<div class="scrollable">
 				<table>
 					<thead>
 						<tr>
-							<th>Plate</th>
-							<th>Release date </th>
-							<th>Fee</th>
-							<th>Authorizing officer</th>
-							<th>Actions</th>
+							<th>Plat nomor</th>
+							<th>Tanggal keluar </th>
+							<th>Biaya</th>
+							<th>Petugas</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody id="impounded-vehicles">
@@ -80,24 +80,24 @@
 				</table>
 			</div>
 			<hr>
-			<p> Why was my vehicle impounded? </p>
+			<p> Kenapa kendaraan ini disita? </p>
 			<textarea id="r-reason" class="form-control" disabled rows="5"></textarea>
 			<p id="hold-by" class="error"></p>
 		</div>
 		
 		<div id="admin-terminal">
-			<h1>Impounded Vehicles</h1>
+			<h1>Kendaraan yang di sita</h1>
 			<span id="exit">&#x2715;</span>
 			<hr>
 			<div class="scrollable">
 				<table>
 					<thead>
 						<tr>
-							<th>Plate</th>
-							<th>Release date </th>
-							<th>Fee</th>
-							<th>Authorizing officer</th>
-							<th>Actions</th>
+							<th>Plat nomor</th>
+							<th>Tanggal keluar </th>
+							<th>Biaya</th>
+							<th>Petugas yang menyita</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody id="admin-impounded-vehicles">
@@ -106,7 +106,7 @@
 				</table>
 			</div>
 			<hr>
-			<p> Why was the vehicle impounded? </p>
+			<p> Kenapa kendaraan ini disita? </p>
 			<textarea id="admin-reason" class="form-control" disabled rows="5"></textarea>
 		</div>
 

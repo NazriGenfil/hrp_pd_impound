@@ -19,6 +19,11 @@ local _ImpoundedVehicles = nil;
 -- Setup & Initialization
 ----------------------------------------------------------------------------------------------------
 
+RegisterNetEvent('nz:openimpoudmenu')
+AddEventHandler('nz:openimpoudmenu', function (playerData)
+	ShowImpoundMenu("store")
+end)
+
 Citizen.CreateThread(function ()
 
 	while _ESX == nil do
@@ -104,13 +109,17 @@ AddEventHandler('HRP:Impound:VehicleUnimpounded', function (data, index)
 		end
 
 	end)
-	_ESX.ShowNotification("Your vehicle with the plate: " .. data.plate .. " has been unimpounded!")
+	print("berhasil dikeluarkan")
+	exports['mythic_notify']:DoHudText('success', 'Kendaraan anda dengan plat ' .. data.plate .. ' telah diparkir diluar')
+	-- _ESX.ShowNotification("Your vehicle with the plate: " .. data.plate .. " has been unimpounded!")
 	SetNewWaypoint(_Impound.SpawnLocations[spawnLocationIndex].x, _Impound.SpawnLocations[spawnLocationIndex].y)
 end)
 
 RegisterNetEvent('HRP:Impound:CannotUnimpound')
 AddEventHandler('HRP:Impound:CannotUnimpound', function ()
-	_ESX.ShowNotification("Your vehicle cannot be unimpounded at this moment, do you have enough cash?");
+	print("Tidak cukup uang")
+	exports['mythic_notify']:DoHudText('error', 'Kamu tidak cukup uang untuk mengeluarkan kendaraan anda')
+	-- _ESX.ShowNotification("Your vehicle cannot be unimpounded at this moment, do you have enough cash?");
 end)
 
 ----------------------------------------------------------------------------------------------------
@@ -353,7 +362,7 @@ Citizen.CreateThread(function ()
 
 	while true do
 		Citizen.Wait(0)
-		if (IsControlJustReleased(0, 38)) then
+		if (IsControlJustPressed(0, 38)) then
 			if (_CurrentAction == "retrieve") then
 				ShowRetrievalMenu()
 			elseif (_CurrentAction == "store") then

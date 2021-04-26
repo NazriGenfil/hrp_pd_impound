@@ -65,7 +65,7 @@ $(document).ready(function () {
 		$('#days').attr("placeholder", `0 - ${rules.maxDays} Days`);
 		$('#hours').attr("placeholder", `0 - ${rules.maxHours} Hours`);
 		$('#fee').attr("placeholder", `${rules.minFee} - ${rules.maxFee}`);
-		$('#reason').attr("placeholder", `Enter a detailed description of ${rules.minReasonLength} characters or more`)
+		$('#reason').attr("placeholder", `Masukkan deskripsi mendetail tentang ${rules.minReasonLength} karakter atau lebih`)
 	}
 
 
@@ -107,17 +107,17 @@ $(document).ready(function () {
 		var reason = $('#reason').val();
 
 		if(String(weeks).length < 1 || parseInt(weeks) < 0 || parseInt(weeks) > rules.maxWeeks || String(days).length < 1 || parseInt(days) < reason.minDays || parseInt(days) > rules.maxDays || String(hours).length < 1 || parseInt(hours) < 0 || parseInt(hours) > rules.maxHours) {
-			errors.append(`<small>&#9679; Weeks have to be 0 or less than ${rules.maxWeeks}, days either 0 or less than ${rules.maxDays} and hours either 0 or less than ${rules.maxHours}.</small>`);
+			errors.append(`<small>&#9679; Minggu harus 0 atau kurang dari ${rules.maxWeeks}, hari baik 0 atau kurang dari ${rules.maxDays} dan jam baik 0 atau kurang dari ${rules.maxHours}.</small>`);
 			success = false;
 		}
 
 		if(fee.isNaN || String(fee).length < 1 || parseInt(fee) < rules.minFee || parseInt(fee) > rules.maxFee) {
-			errors.append(`<small>&#9679; Fee cannot be less than ${rules.minFee} or more than ${rules.maxFee}</small>`);
+			errors.append(`<small>&#9679; Biaya tidak boleh kurang dari ${rules.minFee} atau lebih dari ${rules.maxFee}</small>`);
 			success = false;
 		}
 
 		if(reason.length < rules.minReasonLength || reason.length > 10000) {
-			errors.append(`<small>&#9679; Reason for impoundment cannot be less that ${rules.minReasonLength} characters long.</small>`);
+			errors.append(`<small>&#9679; Alasan penyitaan tidak bisa kurang dari itu ${rules.minReasonLength} panjang karakter.</small>`);
 			success = false;
 		}
 
@@ -151,12 +151,12 @@ $(document).ready(function () {
 			if(releasedate.getTime() > currentdate.getTime() || data.user.money < data.vehicles[i].fee || data.vehicles[i].hold_m || data.vehicles[i].hold_o) {
 				button = `<td>
 					<button class="btn info mr" id="info${i}">Info</button>
-					<button class="btn pay success" id="pay${i}" disabled>Pay</button>
+					<button class="btn pay success" id="pay${i}" disabled>Bayar</button>
 				</td></tr>`
 			} else {
 				button = `<td>
 					<button class="btn info mr" id="info${i}">Info</button>
-					<button class="btn pay success" id="${i}">Pay</button>
+					<button class="btn pay success" id="${i}">Bayar</button>
 				</td></tr>`
 			}
 
@@ -166,7 +166,7 @@ $(document).ready(function () {
 
 		$(rReason).text(rData.vehicles[0].reason);
 		if(rData.vehicles[0].hold_o) {
-			$(holdBy).text(`This vehicle must be unlocked by an officer`);
+			$(holdBy).text(`Kendaraan ini perlu persetujuan petugas`);
 		} else if (rData.vehicles[0].hold_m) {
 			$(holdBy).text(`This vehicle must be unlocked by a mechanic`);
 		} else {
@@ -199,7 +199,7 @@ $(document).ready(function () {
 			if((data.job.name == "police" && data.vehicles[i].hold_o) || (data.job.name == "mecano" && data.vehicles[i].hold_m)) {
 				var button = `<td>
 					<button class="btn info mr" id="info${i}">Info</button>
-					<button class="btn unlock success" id="${i}">Unlock</button>
+					<button class="btn unlock success" id="${i}">Izinkan</button>
 				</td></tr>`
 			} else if (!data.vehicles[i].hold_o && !data.vehicles[i].hold_m) {
 				var button = `<td>
@@ -208,7 +208,7 @@ $(document).ready(function () {
 			} else {
 				var button = `<td>
 				<button class="btn info mr" id="info${i}">Info</button>
-				<button class="btn unlock success" id="${i}" disabled>Unlock</button>
+				<button class="btn unlock success" id="${i}" disabled>Izinkan</button>
 				</td></tr>`
 			}
 
@@ -238,7 +238,7 @@ $(document).ready(function () {
 		$('#admin-reason').text(rData.vehicles[parseInt(index)].reason);
 
 		if(rData.vehicles[parseInt(index)].hold_o) {
-			$(holdBy).text(`This vehicle must be unlocked by an officer`);
+			$(holdBy).text(`Kendaraan ini perlu persetujuan petugas`);
 		} else if (rData.vehicles[parseInt(index)].hold_m) {
 			$(holdBy).text(`This vehicle must be unlocked by a mechanic`);
 		} else {

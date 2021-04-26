@@ -30,9 +30,11 @@ AddEventHandler('HRP:Impound:ImpoundVehicle', function (form)
 			['@hold_m']			= form.hold_m
 		}, function(rowsChanged)
 			if (rowsChanged == 0) then
-				TriggerClientEvent('esx:showNotification', _source, 'Could not impound')
+				TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'error', text = 'Tidak dapa menyita kendaraan!'})
+				-- TriggerClientEvent('esx:showNotification', _source, 'Could not impound')
 			else
-				TriggerClientEvent('esx:showNotification', _source, 'Vehicle Impounded')
+				TriggerClientEvent('mythic_notify:client:SendAlert', _source, { type = 'success', text = 'Kendaraan sudah disita!'})
+				-- TriggerClientEvent('esx:showNotification', _source, 'Vehicle Impounded')
 			end
 	end)
 end)
